@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Products - Shop with Luis</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <meta name="theme-color" content="#0e6e4e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Shop w/ Luis" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+    <script src="js/pwa_register.js" defer></script>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <span
+          ><svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"
+            />
+          </svg>
+          Order support: 055 944 2924</span
+        >
+        <a href="orders.html"
+          ><svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
+            <path d="M3 8l9 5 9-5" />
+            <path d="M12 13v8" />
+          </svg>
+          Track your order</a
+        >
+      </div>
+    </div>
+    <nav class="navbar">
+      <a href="index.html" class="navbar-brand">
+        <div class="store-icon">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6 8h12l-1 12H7L6 8Z" />
+            <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+          </svg>
+        </div>
+        Shop with Luis
+      </a>
+      <form
+        class="nav-search"
+        onsubmit="
+          event.preventDefault();
+          window.location.href =
+            'products.html?search=' + encodeURIComponent(this.q.value.trim());
+        "
+      >
+        <input
+          type="text"
+          name="q"
+          placeholder="Search for products..."
+          aria-label="Search products"
+        />
+        <button type="submit" aria-label="Search">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+        </button>
+      </form>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="orders.html">My Orders</a></li>
+        <li>
+          <a href="cart.html" class="cart-btn">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle
+                cx="9"
+                cy="20"
+                r="1.5"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cx="18"
+                cy="20"
+                r="1.5"
+                fill="currentColor"
+                stroke="none"
+              />
+              <path
+                d="M2 3h2l2.6 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"
+              />
+            </svg>
+            Cart <span class="cart-count">0</span>
+          </a>
+        </li>
+        <li>
+          <button
+            id="install-btn"
+            class="btn btn-install"
+            style="display: none"
+          >
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 3v14" />
+              <path d="m6 11 6 6 6-6" />
+              <path d="M5 21h14" />
+            </svg>
+            Install App
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">All Products</h2>
+        <p class="section-subtitle">Browse our full range</p>
+
+        <div
+          class="category-chips light"
+          id="category-filters"
+          style="justify-content: flex-start; margin-bottom: 20px"
+        ></div>
+
+        <div class="search-bar">
+          <input
+            type="text"
+            class="search-input"
+            id="search"
+            placeholder="Search products..."
+          />
+          <select class="filter-select" id="sort" aria-label="Sort products">
+            <option value="">Sort by</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name">Name A-Z</option>
+          </select>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <div class="loading-overlay" style="grid-column: 1/-1">
+            <div class="spinner"></div>
+            <p style="color: var(--text-light)">Loading products...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 8h12l-1 12H7L6 8Z" />
+              <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+            </svg>
+            Shop with Luis
+          </div>
+          <p style="font-size: 14px; line-height: 1.6">
+            Quality products at your doorstep. Fresh, genuine, and delivered
+            with care across Accra.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="orders.html">Track Order</a></li>
+            <li><a href="tel:0559442924">055 944 2924</a></li>
+            <li><a href="mailto:arkolouis26@gmail.com">Email Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Payment</h4>
+          <ul>
+            <li>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="5" y="11" width="14" height="10" rx="2" />
+                <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+              </svg>
+              Secured by Paystack
+            </li>
+            <li>Mobile Money</li>
+            <li>Debit / Credit Card</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Shop with Luis. All rights reserved.
+      </div>
+    </footer>
+
+    <script type="module">
+      import { db } from "./js/firebase.js";
+      import {
+        collection,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+      import {
+        addToCart,
+        updateCartCount,
+        formatMoney,
+        getImageUrl,
+      } from "./js/cart.js";
+
+      updateCartCount();
+
+      let allProducts = [];
+      let activeCategory = null;
+      const grid = document.getElementById("products-grid");
+      const search = document.getElementById("search");
+      const sort = document.getElementById("sort");
+      const categoryFilters = document.getElementById("category-filters");
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialSearch = urlParams.get("search") || "";
+      const initialCategory = urlParams.get("category") || null;
+      if (initialSearch) search.value = initialSearch;
+      activeCategory = initialCategory;
+
+      async function loadProducts() {
+        try {
+          const snap = await getDocs(collection(db, "products"));
+          allProducts = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+          renderCategoryChips();
+          renderProducts();
+        } catch (e) {
+          console.error(e);
+          if (!navigator.onLine) {
+            grid.innerHTML = `
+              <div class="empty-state" style="grid-column:1/-1">
+                <div class="empty-state-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v-7"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5.5 13.5a9 9 0 0 1 13 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></div>
+                <h3>You're offline</h3>
+                <p>Products will appear here as soon as you're online.</p>
+              </div>`;
+          } else {
+            grid.innerHTML = `<p style="color:red;grid-column:1/-1">Error loading products.</p>`;
+          }
+        }
+      }
+
+      await loadProducts();
+
+      window.addEventListener("online", loadProducts);
+
+      search.addEventListener("input", renderProducts);
+      sort.addEventListener("change", renderProducts);
+
+      function renderCategoryChips() {
+        const categories = [
+          ...new Set(allProducts.map((p) => p.category).filter((c) => !!c)),
+        ];
+
+        if (categories.length === 0) {
+          categoryFilters.style.display = "none";
+          return;
+        }
+
+        const chips = [
+          `<button type="button" class="category-chip${!activeCategory ? " active" : ""}" data-category="">All</button>`,
+          ...categories.map(
+            (c) =>
+              `<button type="button" class="category-chip${activeCategory === c ? " active" : ""}" data-category="${c}">${c}</button>`,
+          ),
+        ];
+        categoryFilters.innerHTML = chips.join("");
+
+        categoryFilters.querySelectorAll(".category-chip").forEach((chip) => {
+          chip.addEventListener("click", () => {
+            activeCategory = chip.dataset.category || null;
+            categoryFilters
+              .querySelectorAll(".category-chip")
+              .forEach((c) => c.classList.remove("active"));
+            chip.classList.add("active");
+            renderProducts();
+          });
+        });
+      }
+
+      function renderProducts() {
+        let filtered = [...allProducts];
+
+        if (activeCategory) {
+          filtered = filtered.filter((p) => p.category === activeCategory);
+        }
+
+        const q = search.value.toLowerCase();
+        if (q) {
+          filtered = filtered.filter((p) => p.name.toLowerCase().includes(q));
+        }
+
+        const s = sort.value;
+        if (s === "price-asc") filtered.sort((a, b) => a.price - b.price);
+        if (s === "price-desc") filtered.sort((a, b) => b.price - a.price);
+        if (s === "name") filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+          <div class="empty-state" style="grid-column:1/-1">
+            <div class="empty-state-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+            <h3>No products found</h3>
+            <p>Try a different search term or category</p>
+          </div>`;
+          return;
+        }
+
+        grid.innerHTML = "";
+        filtered.forEach((p) => grid.appendChild(createCard(p)));
+      }
+
+      const packageIcon = `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>`;
+
+      function createCard(p) {
+        const outOfStock = p.stock <= 0;
+        const lowStock = p.stock > 0 && p.stock < 5;
+        const hasDiscount = p.originalPrice && p.originalPrice > p.price;
+        const discountPct = hasDiscount
+          ? Math.round(100 - (p.price / p.originalPrice) * 100)
+          : 0;
+
+        const div = document.createElement("div");
+        div.className = "product-card";
+        div.addEventListener("click", () => {
+          window.location.href = `product.html?id=${p.id}`;
+        });
+        div.innerHTML = `
+        <div class="product-card-image">
+          ${hasDiscount ? `<div class="discount-badge">-${discountPct}%</div>` : ""}
+          ${
+            p.imageAsset
+              ? `<img src="${getImageUrl(p.imageAsset)}" alt="${p.name}">`
+              : packageIcon
+          }
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-name">${p.name}</div>
+          <div class="product-card-price">
+            ${formatMoney(p.price)}
+            ${hasDiscount ? `<span class="product-card-original-price">${formatMoney(p.originalPrice)}</span>` : ""}
+          </div>
+          <div class="product-card-stock
+            ${outOfStock ? "stock-out" : lowStock ? "stock-low" : "stock-ok"}">
+            ${
+              outOfStock
+                ? `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6"/><path d="m15 9-6 6"/></svg> Out of stock`
+                : lowStock
+                  ? `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 10v5"/><circle cx="12" cy="18" r="0.75" fill="currentColor" stroke="none"/></svg> Only ${p.stock} left`
+                  : `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></svg> In stock`
+            }
+          </div>
+          <button class="btn btn-primary"
+            style="width:100%;font-size:13px;padding:8px;"
+            ${outOfStock ? "disabled" : ""}>
+            ${outOfStock ? "Out of Stock" : `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.5" fill="currentColor" stroke="none"/><path d="M2 3h2l2.6 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg> Add to Cart`}
+          </button>
+        </div>`;
+
+        const img = div.querySelector("img");
+        if (img) {
+          img.addEventListener("error", () => {
+            img.parentElement.innerHTML = packageIcon;
+          });
+        }
+
+        div.querySelector("button").addEventListener("click", (e) => {
+          e.stopPropagation();
+          addToCart(p);
+        });
+
+        return div;
+      }
+    </script>
+  </body>
+</html>

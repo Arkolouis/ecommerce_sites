@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Shop with Luis</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <meta name="theme-color" content="#0e6e4e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Shop w/ Luis" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+    <script src="js/pwa_register.js" defer></script>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg> Order support: 055 944 2924</span>
+        <a href="orders.html"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg> Track your order</a>
+      </div>
+    </div>
+    <nav class="navbar">
+      <a href="index.html" class="navbar-brand">
+        <div class="store-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+        Shop with Luis
+      </a>
+      <form
+        class="nav-search"
+        onsubmit="
+          event.preventDefault();
+          window.location.href =
+            'products.html?search=' + encodeURIComponent(this.q.value.trim());
+        "
+      >
+        <input
+          type="text"
+          name="q"
+          placeholder="Search for products..."
+          aria-label="Search products"
+        />
+        <button type="submit" aria-label="Search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+      </form>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="orders.html">My Orders</a></li>
+        <li>
+          <a href="cart.html" class="cart-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.5" fill="currentColor" stroke="none"/><path d="M2 3h2l2.6 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg> Cart <span class="cart-count">0</span>
+          </a>
+        </li>
+        <li>
+          <button id="install-btn" class="btn btn-install" style="display: none">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v14"/><path d="m6 11 6 6 6-6"/><path d="M5 21h14"/></svg> Install App
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Checkout</h2>
+
+        <div class="checkout-grid">
+          <div>
+            <div class="form-card">
+              <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6.5 8-6.5s6.5 2 8 6.5"/></svg> Your Details</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">First Name *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="firstName"
+                    placeholder="Louis"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="lastName"
+                    placeholder="Arko"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email *</label>
+                <input
+                  type="email"
+                  class="form-input"
+                  id="email"
+                  placeholder="louis@example.com"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone *</label>
+                <input
+                  type="tel"
+                  class="form-input"
+                  id="phone"
+                  placeholder="0XX XXX XXXX"
+                />
+              </div>
+            </div>
+
+            <div class="form-card">
+              <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="7" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg> Delivery Method</h3>
+              <div class="delivery-options">
+                <div
+                  class="delivery-option selected"
+                  id="opt-pickup"
+                  onclick="selectDelivery('pickup')"
+                >
+                  <div class="delivery-option-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 4 4h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/><path d="M3 9h18"/></svg></div>
+                  <div>
+                    <div class="delivery-option-label">Store Pickup</div>
+                    <div class="delivery-option-desc">
+                      Ready in 30 mins • Free
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="delivery-option"
+                  id="opt-delivery"
+                  onclick="selectDelivery('delivery')"
+                >
+                  <div class="delivery-option-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="7" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg></div>
+                  <div>
+                    <div class="delivery-option-label">Home Delivery</div>
+                    <div class="delivery-option-desc">1-2 hours • ₵50.00</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="delivery-address" style="display: none">
+                <div class="form-group">
+                  <label class="form-label">Delivery Address *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="address"
+                    placeholder="Street address"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Area / Landmark</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="area"
+                    placeholder="e.g. Near Accra Mall"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-card">
+              <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><path d="m6 16 10-10 3.5 3.5L9.5 19.5H6V16Z"/></svg> Order Notes (optional)</h3>
+              <div class="form-group">
+                <textarea
+                  class="form-input"
+                  id="notes"
+                  rows="3"
+                  placeholder="Any special instructions?"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="summary-card">
+              <h3>Order Summary</h3>
+              <div id="order-items"></div>
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₵0.00</span>
+              </div>
+              <div class="summary-row" id="delivery-row">
+                <span>Delivery</span>
+                <span id="delivery-cost">Free</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span id="total">₵0.00</span>
+              </div>
+              <button
+                class="btn btn-success btn-full"
+                style="margin-top: 16px"
+                id="pay-btn"
+                onclick="processPayment()"
+              >
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Pay Now
+              </button>
+              <p
+                style="
+                  text-align: center;
+                  font-size: 12px;
+                  color: var(--text-light);
+                  margin-top: 12px;
+                "
+              >
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Secured by Paystack
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg> Shop with Luis</div>
+          <p style="font-size: 14px; line-height: 1.6">
+            Quality products at your doorstep. Fresh, genuine, and delivered
+            with care across Accra.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="orders.html">Track Order</a></li>
+            <li><a href="tel:0559442924">055 944 2924</a></li>
+            <li><a href="mailto:arkolouis26@gmail.com">Email Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Payment</h4>
+          <ul>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Secured by Paystack</li>
+            <li>Mobile Money</li>
+            <li>Debit / Credit Card</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Shop with Luis. All rights reserved.
+      </div>
+    </footer>
+
+    <script type="module">
+      import { db } from "./js/firebase.js";
+      import {
+        collection,
+        addDoc,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+      import {
+        getCart,
+        getCartTotal,
+        clearCart,
+        updateCartCount,
+        formatMoney,
+        showToast,
+      } from "./js/cart.js";
+
+      const PAYSTACK_KEY = "pk_test_e834b66e91d78396a162552e8d3af770ac932269";
+
+      updateCartCount();
+
+      let deliveryMethod = "pickup";
+      const DELIVERY_FEE = 50;
+
+      window.selectDelivery = (method) => {
+        deliveryMethod = method;
+        document
+          .getElementById("opt-pickup")
+          .classList.toggle("selected", method === "pickup");
+        document
+          .getElementById("opt-delivery")
+          .classList.toggle("selected", method === "delivery");
+        document.getElementById("delivery-address").style.display =
+          method === "delivery" ? "block" : "none";
+        updateSummary();
+      };
+
+      function updateSummary() {
+        const cart = getCart();
+        const subtotal = getCartTotal();
+        const fee = deliveryMethod === "delivery" ? DELIVERY_FEE : 0;
+        const total = subtotal + fee;
+
+        const itemsDiv = document.getElementById("order-items");
+        itemsDiv.innerHTML = cart
+          .map(
+            (i) => `
+        <div class="summary-row">
+          <span>${i.name} × ${i.qty}</span>
+          <span>${formatMoney(i.price * i.qty)}</span>
+        </div>`,
+          )
+          .join("");
+
+        document.getElementById("subtotal").textContent = formatMoney(subtotal);
+        document.getElementById("delivery-cost").textContent =
+          fee === 0 ? "Free" : formatMoney(fee);
+        document.getElementById("total").textContent = formatMoney(total);
+      }
+
+      updateSummary();
+
+      async function saveOrder(response) {
+        const btn = document.getElementById("pay-btn");
+        btn.disabled = true;
+        btn.textContent = "Saving order...";
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address")?.value.trim();
+        const cart = getCart();
+        const subtotal = getCartTotal();
+        const fee = deliveryMethod === "delivery" ? DELIVERY_FEE : 0;
+        const total = subtotal + fee;
+
+        try {
+          const orderData = {
+            customerName: `${firstName} ${lastName}`,
+            email: email,
+            phone: phone,
+            address: deliveryMethod === "delivery" ? address : "Store Pickup",
+            area: document.getElementById("area")?.value || "",
+            deliveryMethod: deliveryMethod,
+            cartItems: cart,
+            subtotal: subtotal,
+            deliveryFee: fee,
+            totalAmount: total,
+            paymentReference: response.reference,
+            paymentStatus: "Paid",
+            notes: document.getElementById("notes").value || "",
+            createdAt: serverTimestamp(),
+          };
+
+          const docRef = await addDoc(collection(db, "orders"), orderData);
+
+          clearCart();
+          updateCartCount();
+
+          window.location.href = `confirmation.html?order=${docRef.id}&ref=${response.reference}`;
+        } catch (e) {
+          console.error("Order save error:", e);
+          alert(
+            "Order saved but there was an issue. Please contact support with reference: " +
+              response.reference,
+          );
+          btn.disabled = false;
+          btn.innerHTML = `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Pay Now`;
+        }
+      }
+
+      function showFieldError(id, message) {
+        const field = document.getElementById(id);
+        field.classList.add("input-error");
+        let err = field.parentElement.querySelector(".field-error");
+        if (!err) {
+          err = document.createElement("div");
+          err.className = "field-error";
+          field.parentElement.appendChild(err);
+        }
+        err.textContent = message;
+      }
+
+      function clearFieldError(id) {
+        const field = document.getElementById(id);
+        field.classList.remove("input-error");
+        const err = field.parentElement.querySelector(".field-error");
+        if (err) err.remove();
+      }
+
+      function clearAllFieldErrors() {
+        ["firstName", "lastName", "email", "phone", "address"].forEach(
+          clearFieldError,
+        );
+      }
+
+      ["firstName", "lastName", "email", "phone", "address"].forEach((id) => {
+        document.getElementById(id)?.addEventListener("input", () => {
+          clearFieldError(id);
+        });
+      });
+
+      window.processPayment = async () => {
+        clearAllFieldErrors();
+
+        if (!navigator.onLine) {
+          showToast(
+            "You're offline - checkout needs an internet to process payment. try again once you're back online.",
+            "error",
+          );
+          return;
+        }
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address")?.value.trim();
+
+        let hasError = false;
+        if (!firstName) {
+          showFieldError("firstName", "First name is required");
+          hasError = true;
+        }
+        if (!lastName) {
+          showFieldError("lastName", "Last name is required");
+          hasError = true;
+        }
+        if (!email) {
+          showFieldError("email", "Email is required");
+          hasError = true;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showFieldError("email", "Enter a valid email address");
+          hasError = true;
+        }
+        if (!phone) {
+          showFieldError("phone", "Phone number is required");
+          hasError = true;
+        }
+        if (deliveryMethod === "delivery" && !address) {
+          showFieldError("address", "Delivery address is required");
+          hasError = true;
+        }
+
+        if (hasError) {
+          document
+            .querySelector(".input-error")
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
+        const cart = getCart();
+        if (cart.length === 0) {
+          alert("Your cart is empty");
+          return;
+        }
+
+        const subtotal = getCartTotal();
+        const fee = deliveryMethod === "delivery" ? DELIVERY_FEE : 0;
+        const total = subtotal + fee;
+
+        const handler = PaystackPop.setup({
+          key: PAYSTACK_KEY,
+          email: email,
+          amount: Math.round(total * 100), 
+          currency: "GHS",
+          ref: "SWL-" + Date.now(),
+          metadata: {
+            custom_fields: [
+              {
+                display_name: "Customer Name",
+                variable_name: "name",
+                value: `${firstName} ${lastName}`,
+              },
+              { display_name: "Phone", variable_name: "phone", value: phone },
+            ],
+          },
+          callback: (response) => {
+            saveOrder(response);
+          },
+          onClose: () => {
+            const btn = document.getElementById("pay-btn");
+            btn.disabled = false;
+            btn.innerHTML = `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Pay Now`;
+          },
+        });
+
+        handler.openIframe();
+      };
+    </script>
+  </body>
+</html>

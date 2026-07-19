@@ -1,0 +1,54 @@
+{
+  "id": "/index.html",
+  "name": "Shop with Luis",
+  "short_name": "Shop w/ Luis",
+  "description": "Quality products at your doorstep. Fresh, genuine, and delivered with care across Accra.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#f8fafc",
+  "theme_color": "#0e6e4e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/wide-home.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Shop with Luis homepage on desktop"
+    },
+    {
+      "src": "screenshots/mobile-home.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "label": "Shop with Luis homepage on mobile"
+    }
+  ]
+}
